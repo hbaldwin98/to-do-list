@@ -1,0 +1,93 @@
+* {
+  font-family: Fantasy;
+  font-weight: 100;
+}
+
+#toDo {
+  text-align: center;
+  margin: auto;
+  padding: auto;
+  box-shadow: 0px 0px 5px black;
+  width : 650px;
+}
+
+#input-name {
+  padding: 0.25em 0 1.5em 0;
+}
+
+.submit-name {
+  width: 250px;
+}
+
+.submit-button {
+  margin: auto;
+  display: block;
+  width: 100px;
+  height: 35px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 45%;
+}
+
+.submit-button:hover {
+  background-color: gray;
+}
+
+#name-header {
+  font-size: 64px;
+  margin: auto;
+  padding: 0.25em 0 0.25em 0;
+}
+
+.change-name {
+  margin: auto;
+  display: block;
+  width: 100px;
+  height: 35px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 45%;
+}
+
+.task-field {
+  width: 250px;
+}
+
+.task-button {
+  margin: auto;
+  display: block;
+  width: 100px;
+  height: 35px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 45%;
+}
+
+ul {
+  text-align: left;
+  width: 75%;
+  padding: 0 0 3em 0;
+  margin: 2em 25% 0 25%;
+  margin: auto;
+}
+
+li {
+  border: 1px solid black;
+  list-style: none;
+  padding: 0.4em;
+  margin: 1em;
+}
+
+.delete-button {
+  position: relative;
+  margin-right: 1em;
+  border-radius: 50%;
+  border: none;
+}
+
+.delete-button:hover {
+  background-color: grey;
+} 

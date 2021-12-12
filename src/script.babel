@@ -1,0 +1,90 @@
+function EnterName(props) {
+  return (
+    <div>
+      <form id="input-name" onSubmit={props.subName}>
+        <h1>To-Do List</h1>
+        <input type="text" name="name" placeholder="Enter Your Name" class="submit-name" required />
+        <input type="submit" value="Submit" class="submit-button"/>
+      </form>
+    </div>
+  );
+}
+
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      has_name: false,
+      tasks: []
+    };
+    
+    this.submitName = this.submitName.bind(this);
+    this.resetName = this.resetName.bind(this);
+    this.addTask = this.addTask.bind(this);
+    this.removeTask = this.removeTask.bind(this);
+  }
+
+  submitName(e) {
+    e.preventDefault();
+    this.setState({
+      name: e.target.name.value,
+      has_name: true
+    });
+  }
+
+  resetName() {
+    this.setState({
+      name: "",
+      has_name: false
+    });
+  }
+
+  addTask(e) {
+    e.preventDefault();
+    this.setState((state) => ({
+      tasks: [...state.tasks, {id : Date.now(), val : e.target.task.value}]
+    }));
+  }
+  
+  removeTask(e) {
+    e.preventDefault();
+    document.getElementById(e.target.children.[0].id).remove;
+    this.setState((state) => ({
+      tasks : state.tasks.filter(val => val.id != e.target.children.[0].id)
+    }));
+  }
+
+  render() {
+    if (this.state.has_name) {
+      return (
+        <div>
+          <form id="change-name" onSubmit={this.resetName}>
+            <h1 id="name-header">{this.state.name}'s Tasks</h1>
+            <input type="submit" value="Change Name" class="change-name"/>
+          </form>
+          <br />
+          <form id="new-task" onSubmit={this.addTask}>
+            <input type="text" name="task" placeholder="Task Information" class="task-field" required />
+            <input type="submit" value="Add Task" class="task-button"/>
+          </form>
+          <ul>
+            {this.state.tasks.map((t) => (
+              <form onSubmit={this.removeTask}>
+                <li id={t.id}><input type="submit" value="X" class="delete-button"/>{t.val}</li>
+              </form>
+            ))}
+          </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <EnterName subName={this.submitName} />
+        </div>
+      );
+    }
+  }
+}
+
+ReactDOM.render(<ToDo />, document.getElementById("toDo"));
